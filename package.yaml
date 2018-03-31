@@ -21,6 +21,7 @@ description:         Please see the README on Github at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- attoparsec
 - text
 
 library:
@@ -37,8 +38,8 @@ executables:
     - -Wall
     dependencies:
     - hjq
+    - attoparsec
     - text
-
 
 tests:
   hjq-test:
