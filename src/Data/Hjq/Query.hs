@@ -31,3 +31,8 @@ noteOutOfRangeError s Nothing = Left $ "out of range: " <> tshow s
 
 tshow :: Show a => a -> Text
 tshow = pack . show
+
+executeQuery :: JqQuery -> Value -> Either Text Value
+executeQuery (JqQueryObject o) v = fmap (Object . H.fromList) . sequence . fmap sequence $ fmap (fmap $ flip executeQuery v) o
+executeQuery (JqQueryArray l) v = fmap (Array . V.fromList) . sequence $ fmap (flip executeQuery v) l
+executeQuery (JqQueryFilter f) v = applyFilter f v

@@ -21,10 +21,13 @@ description:         Please see the README on Github at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- aeson
 - attoparsec
-- vector
-- unordered-containers
+- lens
+- lens-aeson
 - text
+- unordered-containers
+- vector
 
 library:
   source-dirs: src
@@ -40,10 +43,13 @@ executables:
     - -Wall
     dependencies:
     - hjq
+    - aeson
     - attoparsec
-    - vector
-    - unordered-containers
+    - lens
+    - lens-aeson
     - text
+    - unordered-containers
+    - vector
 
 tests:
   hjq-test:
@@ -57,4 +63,7 @@ tests:
     dependencies:
     - hjq
     - HUnit
+    - aeson
+    - lens
+    - lens-aeson
     - text
